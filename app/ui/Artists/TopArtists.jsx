@@ -1,5 +1,6 @@
 import { Button } from "@nextui-org/react";
 import CreatorCard from "./CreatorsCard";
+import { PiRocketLaunch } from "react-icons/pi";
 export default function TopCreators() {
   const authors = [
     {
@@ -40,8 +41,11 @@ export default function TopCreators() {
             variant="bordered"
             className='text-white'
             size='lg'
+            startContent={
+              <PiRocketLaunch color='#A259FF'/>
+            }
           >
-            View Ranking
+            View Rankings
           </Button>
         </div>
       </div>
