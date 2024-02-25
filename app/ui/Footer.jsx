@@ -5,6 +5,7 @@ import ShopIcon from "./icons/ShopIcon";
 import { FaInstagram } from "react-icons/fa";
 import { RxDiscordLogo } from "react-icons/rx";
 import { FiYoutube, FiTwitter } from "react-icons/fi";
+import Link from 'next/link'
 export default function MainFooter() {
   return (
     <div className="h-[334px] bg-[#3B3B3B]">
@@ -20,16 +21,26 @@ export default function MainFooter() {
           <br />
           <p className="text-lg text-default-500 mb-2">Join our community</p>
           <div className="flex flex-row gap-3">
-            <RxDiscordLogo color='#858584' size={'2em'} />
-            <FiYoutube color='#858584' size={'2em'} />
-            <FiTwitter color='#858584' size={'2em'} />
-            <FaInstagram color='#858584' size={'2em'} />
+            <Link href="https://discord.com/invite/eQxkYTNxSp">
+              <RxDiscordLogo color='#858584' size={'2em'} />
+            </Link>
+            <Link href="https://www.youtube.com/channel/UCXqr0Ca-b73rU9zcpSBJ5cw">
+              <FiYoutube color='#858584' size={'2em'} />
+            </Link>
+            <Link href="https://twitter.com/animaapp?lang=en">
+              <FiTwitter color='#858584' size={'2em'} />
+            </Link>
+            <Link href="https://www.instagram.com/animaapp/?hl=en">
+              <FaInstagram color='#858584' size={'2em'} />
+            </Link>
           </div>
         </div>
         <div>
           <p className="text-3xl font-semi">Explore</p>
           <br />
-          <p className="text-lg text-default-500">Marketplace</p>
+          <Link href="/marketplace">
+            <p className="text-lg text-default-500">Marketplace</p>
+          </Link>
           <br />
           <p className="text-lg text-default-500">Rankings</p>
           <br />
