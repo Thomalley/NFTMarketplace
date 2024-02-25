@@ -1,4 +1,5 @@
-import { Button, Card, CardHeader, CardBody, CardFooter, Image } from "@nextui-org/react";
+import { Button, Card, CardHeader, CardBody, CardFooter } from "@nextui-org/react";
+import Image from 'next/image'
 export default function CollectionCard({ mainSrc, mainAlt, bodySrc1, bodyAlt1, bodySrc2, bodyAlt2, footerSrc, footerTitle, author }) {
   return (
     <Card className="max-w-[400px] bg-background shadow-none">
@@ -7,7 +8,7 @@ export default function CollectionCard({ mainSrc, mainAlt, bodySrc1, bodyAlt1, b
           alt={mainAlt}
           height={350}
           width={300}
-          radius="sm"
+          style={{ borderRadius: '10%' }}
           src={mainSrc}
         />
       </CardHeader>
@@ -17,14 +18,14 @@ export default function CollectionCard({ mainSrc, mainAlt, bodySrc1, bodyAlt1, b
             alt={bodyAlt1}
             height={100}
             width={99}
-            radius="sm"
+            style={{ borderRadius: '10%' }}
             src={bodySrc1}
           />
           <Image
             alt={bodyAlt2}
             height={100}
             width={99}
-            radius="sm"
+            style={{ borderRadius: '10%' }}
             src={bodySrc2}
           />
           <Button
@@ -43,7 +44,7 @@ export default function CollectionCard({ mainSrc, mainAlt, bodySrc1, bodyAlt1, b
               alt='avatarImage'
               height={20}
               width={20}
-              radius='lg'
+              style={{ borderRadius: '50%' }}
               src={footerSrc}
             />
             <p className="text-small text-default-500 pl-1">{author}</p>
