@@ -53,7 +53,7 @@ export default function MainFooter() {
         <Divider className="w-[91em] h-[2px]" />
       </div>
       <div className="ml-[12.6em]">
-        <p className="text-sm text-default-500">Ⓒ NFT Market. Use this template freely</p>
+        <p className="text-sm text-default-500 mt-3">Ⓒ NFT Market. Use this template freely</p>
       </div>
     </div >
   )
