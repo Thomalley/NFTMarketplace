@@ -8,6 +8,7 @@ import { spaceMono } from "./Fonts";
 import { usePathname } from "next/navigation";
 import { IoIosCart } from "react-icons/io";
 import { cartStore } from 'app/store/cart';
+import { Toaster, toast } from 'sonner'
 
 export default function App() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -46,7 +47,7 @@ export default function App() {
           <NavbarMenu>
             <NavbarMenuItem>
               <Link color="foreground" href="/marketplace" className="text-lg w-full" size="lg">
-                Marketplace
+                Home
               </Link>
             </NavbarMenuItem>
             <NavbarMenuItem>
@@ -68,24 +69,61 @@ export default function App() {
         </>
       ) : (
         <>
-          <NavbarContent className="hidden md:flex gap-4" data-justify='end'>
-            <NavbarItem isActive>
+          <NavbarContent className="hidden md:flex gap-2" data-justify='end'>
+            <NavbarItem>
               <Link color="foreground" href="/marketplace" className="text-lg">
                 Marketplace
               </Link>
             </NavbarItem>
-            <NavbarItem>
-              <Link color="foreground" href="#" className="text-lg">
-                Rankings
-              </Link>
+            <NavbarItem
+              className="cursor-pointer"
+              onClick={() => toast.warning('Sorry, this section is disabled :(',
+                {
+                  duration: 4000,
+                  style: {
+                    background: '#27272A',
+                    fontSize: '16px',
+                    color: '#FDBA74',
+                    borderColor: 'transparent'
+                  }
+                }
+              )}
+            >
+              Rankings
             </NavbarItem>
-            <NavbarItem>
-              <Link color="foreground" href="#" className="text-lg">
-                Connect a wallet
-              </Link>
+            <NavbarItem
+              className="cursor-pointer"
+              onClick={() => toast.warning('Sorry, this section is disabled :(',
+                {
+                  duration: 4000,
+                  style: {
+                    background: '#27272A',
+                    fontSize: '16px',
+                    color: '#FDBA74',
+                    borderColor: 'transparent'
+                  }
+                }
+              )}
+            >
+              Connect a wallet
             </NavbarItem>
-            <NavbarItem>
-              <Button as={Link} color="secondary" href="#" className="text-lg">
+            <NavbarItem
+            >
+              <Button
+                color="secondary"
+                className="text-lg"
+                onClick={() => toast.warning('Sorry, this section is disabled :(',
+                  {
+                    duration: 4000,
+                    style: {
+                      background: '#27272A',
+                      fontSize: '16px',
+                      color: '#FDBA74',
+                      borderColor: 'transparent'
+                    }
+                  }
+                )}
+              >
                 Sign Up
               </Button>
             </NavbarItem>
