@@ -104,7 +104,7 @@ export default function MarkerplaceSection() {
                 <Tooltip color="secondary" content={`${productsIds.includes(i.id) ? 'Remove NFT from cart' : 'Add NFT to cart'}`} size="sm">
                   <Button
                     onClick={() => productsIds.includes(i.id) ? handleDeleteProduct(i) : handleAddProduct(i)}
-                    className="absolute h-10 -ml-3 mt-1 2xl:ml-12 text-4xl text-[#A259FF] bg-transparent"
+                    className="absolute h-10 -ml-3 md:ml-12 mt-1 2xl:ml-12 text-4xl text-[#A259FF] bg-transparent"
                   >
                     {productsIds.includes(i.id) ? '-' : '+'}
                   </Button>
@@ -124,7 +124,7 @@ export default function MarkerplaceSection() {
                 <Tooltip color="secondary" content={`${productsIds.includes(i.id) ? 'Remove NFT from cart' : 'Add NFT to cart'}`} size="sm">
                   <Button
                     onClick={() => productsIds.includes(i.id) ? handleDeleteProduct(i) : handleAddProduct(i)}
-                    className="absolute h-10 ml-16 text-4xl text-[#A259FF] bg-transparent"
+                    className="absolute h-10 -ml-3 md:ml-12 mt-1 2xl:ml-12 text-4xl text-[#A259FF] bg-transparent"
                   >
                     {productsIds.includes(i.id) ? '-' : '+'}
                   </Button>

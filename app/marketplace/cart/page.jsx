@@ -1,30 +1,62 @@
 'use client'
 import React from 'react';
-import { cartStore } from 'app/store/cart';
-import DiscoverMoreCard from 'app/ui/DiscoverNFT/DiscoverMoreCard';
-import { Toaster, toast } from 'sonner'
 import { Button, Tooltip } from '@nextui-org/react';
 import Link from 'next/link'
-import { spaceMonoRegular } from 'app/ui/Fonts';
+import { useRouter } from 'next/navigation'
+import { Toaster, toast } from 'sonner'
+import { spaceMonoRegular, spaceMono } from 'app/ui/Fonts';
+import { cartStore } from 'app/store/cart';
+import DiscoverMoreCard from 'app/ui/DiscoverNFT/DiscoverMoreCard';
 
 export default function Cart() {
-  const products = cartStore((state) => state.cart.products);
+  const router = useRouter()
+  const products = cartStore((s) => s.cart.products);
   const removeProduct = cartStore((s) => s.removeProduct)
+  const removeAllProducts = cartStore((s) => s.removeAllProducts);
 
   const handleDeleteProduct = (i) => {
     removeProduct(i)
     toast.success('NFT successfully removed from cart')
   }
 
+  const handleCancel = () => {
+    removeAllProducts();
+    router.push('/marketplace');
+  };
+
   return (
     <div className=' bg-[#3B3B3B] md:min-h-[640px]'>
       <Toaster richColors />
-      <div className='flex flex-row justify-around w-full bg-background h-20'>
-        <div className='flex flex-row mb-4'>
+      <div className='flex flex-col md:flex-row justify-between pb-2 px-12 w-full bg-background h-36 md:h-20 md:mt-12'>
+        <div className='md:hidden flex flex-row'>
           <p className='pr-4 font-semibold text-lg'>
             {!products.length ? 'Your cart is empty 😖' : 'Welcome to your cart 🛒'}
           </p>
         </div>
+        {products.length ? (
+          <Tooltip color="warning" content='Remove all NFT from cart' size="sm">
+            <Button
+              color='warning'
+              onClick={handleCancel}
+              className={`${spaceMono.className} md:mt-8`}
+            >
+              Cancel
+            </Button>
+          </Tooltip>
+        ) : null}
+        <div className='hidden md:flex flex-row'>
+          <p className='pr-4 font-semibold text-lg'>
+            {!products.length ? 'Your cart is empty 😖' : 'Welcome to your cart 🛒'}
+          </p>
+        </div>
+        {products.length ? (
+          <Button
+            color='secondary'
+            className={`${spaceMono.className} md:mt-8`}
+          >
+            Buy
+          </Button>
+        ) : null}
       </div>
       <div className={products.length ? 'grid grid-cols-1 md:grid-cols-3' : ''}>
         {products.length ? products.map((p) => {

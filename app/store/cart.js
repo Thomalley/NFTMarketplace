@@ -18,5 +18,10 @@ export const cartStore = create((set) => ({
       }
     }))
   })),
-  removeAllProducts: () => set({ cart: { products: [] } }),
+  removeAllProducts: () => set({
+    cart: {
+      products: [],
+      productsIds: [],
+    },
+  }),
 }))  

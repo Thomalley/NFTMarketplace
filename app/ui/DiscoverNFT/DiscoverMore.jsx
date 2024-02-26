@@ -1,6 +1,7 @@
 import { Button } from "@nextui-org/react";
 import { LuEye } from "react-icons/lu";
 import DiscoverMoreCard from "./DiscoverMoreCard";
+
 export default function DiscoverMore() {
   const items = [
     {
@@ -55,7 +56,7 @@ export default function DiscoverMore() {
       <div className='columns-1 md:columns-3 m-auto'>
         <div className='w-full'>
           {items.map((i) => {
-            return (
+            return ( 
               <div className='mb-8'>
                 <DiscoverMoreCard
                   item={i}
