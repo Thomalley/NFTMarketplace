@@ -5,6 +5,7 @@ import Link from 'next/link'
 import { useRouter } from 'next/navigation'
 import { Toaster, toast } from 'sonner'
 import { spaceMonoRegular, spaceMono } from 'app/ui/Fonts';
+import { FaPlus as PlusIcon } from "react-icons/fa";
 import { cartStore } from 'app/store/cart';
 import DiscoverMoreCard from 'app/ui/DiscoverNFT/DiscoverMoreCard';
 
@@ -24,10 +25,15 @@ export default function Cart() {
     router.push('/marketplace');
   };
 
+  const handleBuy = () => {
+    removeAllProducts();
+    toast.success(`Congrats! You just bought yout ${products.length > 1 ? 'NTFs' : 'NFT'}!`)
+    setTimeout(() => router.push('/marketplace'), 2000);
+  };
   return (
     <div className=' bg-[#3B3B3B] md:min-h-[640px]'>
       <Toaster richColors />
-      <div className='flex flex-col md:flex-row justify-between pb-2 px-12 w-full bg-background h-36 md:h-20 md:mt-12'>
+      <div className={`flex flex-col md:flex-row ${products.length === 0 ? 'justify-center' : 'justify-between'} pb-2 px-12 w-full bg-background h-36 md:h-20 md:mt-12`}>
         <div className='md:hidden flex flex-row'>
           <p className='pr-4 font-semibold text-lg'>
             {!products.length ? 'Your cart is empty 😖' : 'Welcome to your cart 🛒'}
@@ -44,8 +50,8 @@ export default function Cart() {
             </Button>
           </Tooltip>
         ) : null}
-        <div className='hidden md:flex flex-row'>
-          <p className='pr-4 font-semibold text-lg'>
+        <div className='hidden md:flex flex-row self-center'>
+          <p className='pr-4 font-semibold text-lg w-fit'>
             {!products.length ? 'Your cart is empty 😖' : 'Welcome to your cart 🛒'}
           </p>
         </div>
@@ -53,6 +59,7 @@ export default function Cart() {
           <Button
             color='secondary'
             className={`${spaceMono.className} md:mt-8`}
+            onClick={handleBuy}
           >
             Buy
           </Button>
@@ -65,9 +72,11 @@ export default function Cart() {
               <Tooltip color="secondary" content='Remove NFT from cart' size="sm">
                 <Button
                   onClick={() => handleDeleteProduct(p)}
-                  className="absolute mr-60 md:w-10 md:h-10 2xl:mr-80 text-4xl text-[#A259FF] bg-transparent"
+                  radius='lg'
+                  isIconOnly
+                  className="absolute mt-4 mr-60 md:w-10 md:h-10 2xl:mr-80 text-2xl text-[#A259FF] bg-transparent"
                 >
-                  x
+                  <PlusIcon className='rotate-45' />
                 </Button>
               </Tooltip>
               <div>

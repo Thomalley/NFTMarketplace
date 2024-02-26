@@ -43,7 +43,12 @@ export default function App() {
   };
 
   return (
-    <Navbar shouldHideOnScroll maxWidth='full' onMenuOpenChange={() => setIsMenuOpen((prev) => !prev)}>
+    <Navbar
+      shouldHideOnScroll
+      className='mt-1'
+      maxWidth='full'
+      onMenuOpenChange={() => setIsMenuOpen((prev) => !prev)}
+    >
       <NavbarContent>
         <NavbarBrand justify="start">
           <Link color="foreground" href="/" className="flex flex-row">
@@ -113,7 +118,7 @@ export default function App() {
             <Link
               color="foreground"
               href="/marketplace/cart"
-              className="text-lg mt-2"
+              className="text-lg"
             >
               <Badge content={cart.products.length} color="secondary">
                 <CartIcon color="#FFFFFF" className="text-4xl" />
