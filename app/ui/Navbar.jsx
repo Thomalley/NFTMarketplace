@@ -17,25 +17,25 @@ export default function App() {
   return (
     <Navbar shouldHideOnScroll maxWidth='full' onMenuOpenChange={setIsMenuOpen}>
       <NavbarContent>
-        <NavbarBrand justify="start
+        <NavbarBrand justify="start">
           <ShopIcon color='#A259FF' className='text-3xl self-center' />
           <p className={`${spaceMono.className} antialiased text-lg text-inherit ml-2`}>NFT Marketplace</p>
         </NavbarBrand>
         <NavbarMenuToggle
           aria-label={isMenuOpen ? "Close menu" : "Open menu"}
-          className="md:hidden"
+        className="md:hidden"
         />
       </NavbarContent>
       {pathname === '/marketplace' || pathname === '/marketplace/cart' ? (
         <>
-          <NavbarContent className="hidden md:flex  gap-4" data-justify='end'>
+          <NavbarContent className="hidden md:flex gap-4" data-justify='end'>
             <NavbarItem>
               <Link color="foreground" href="/" className="text-xl font-medium">
                 Home
               </Link>
             </NavbarItem>
-            <NavbarItem>
-              <Link color="foreground" href="/marketplace/cart" className="text-lg mt-2">
+            <NavbarItem className="mt-2">
+              <Link color="foreground" href="/marketplace/cart" className="text-lg">
                 <Badge content={cart.products.length} color="secondary">
                   <IoIosCart color="#FFFFFF" className="text-4xl" />
                 </Badge>
