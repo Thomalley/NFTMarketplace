@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import { Navbar, NavbarBrand, NavbarContent, NavbarItem, NavbarMenuToggle, NavbarMenu, NavbarMenuItem, Button, Badge } from "@nextui-org/react";
 import Link from 'next/link'
 import { MdStorefront as ShopIcon } from "react-icons/md";
+import { PiUserLight as UserIcon } from "react-icons/pi";
 import { spaceMono } from "./Fonts";
 import { usePathname } from "next/navigation";
 import { IoIosCart } from "react-icons/io";
@@ -16,9 +17,9 @@ export default function App() {
   return (
     <Navbar shouldHideOnScroll maxWidth='full' onMenuOpenChange={setIsMenuOpen}>
       <NavbarContent>
-        <NavbarBrand justify="start">
-          <ShopIcon color='#A259FF' className='text-3xl' />
-          <p className={`${spaceMono.className} text-lg text-inherit ml-2`}>NFT Marketplace</p>
+        <NavbarBrand justify="start
+          <ShopIcon color='#A259FF' className='text-3xl self-center' />
+          <p className={`${spaceMono.className} antialiased text-lg text-inherit ml-2`}>NFT Marketplace</p>
         </NavbarBrand>
         <NavbarMenuToggle
           aria-label={isMenuOpen ? "Close menu" : "Open menu"}
