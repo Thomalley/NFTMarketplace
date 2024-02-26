@@ -1,5 +1,6 @@
 import { Button } from "@nextui-org/react";
 import CreatorCard from "./CreatorsCard";
+
 export default function TopCreators() {
   const authors = [
     {
@@ -27,11 +28,12 @@ export default function TopCreators() {
       totalSales: '34.53 ETH',
     },
   ];
+
   return (
-    <div className='flex flex-col items-start justify-around m-20'>
-      <div className='flex w-3/4 self-center pb-10 justify-between'>
+    <div className='hidden md:flex flex-col items-start justify-around'>
+      <div className='flex justify-between text-left w-[300px] md:w-11/12 self-center 2xl:w-5/6 md:px-8 pb-6'>
         <div className='flex flex-col items-start'>
-          <p className="text-2xl font-semibold">Top Creators</p>
+          <p className="text-2xl md:text-4xl font-bold md:font-semibold w-full">Top Creators</p>
           <p className="text-md text-default-500">Checkout Top Rated Creators on the NFT Marketplace.</p>
         </div>
         <div>
@@ -41,11 +43,11 @@ export default function TopCreators() {
             className='text-white'
             size='lg'
           >
-            View Ranking
+            View Rankings
           </Button>
         </div>
       </div>
-      <div className='flex w-full flex-row justify-around'>
+      <div className='flex justify-between self-center w-11/12 2xl:w-4/5 '>
         {authors.map((c) => {
           return <CreatorCard
             item={c}
