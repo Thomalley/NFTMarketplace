@@ -32,11 +32,11 @@ export default function DiscoverMore() {
     },
   ];
   return (
-    <div className='flex flex-col items-start justify-around mx-10 md:m-20'>
-      <div className='flex w-full md:w-3/4 self-center pb-10 justify-between'>
-        <div className='flex flex-col items-start w-full'>
-          <p className="text-3xl md:text-2xl font-semibold">Discover More NFTs</p>
-          <p className="text-md text-default-500 pt-4">Explore new trending NFTs.</p>
+    <div className='flex flex-col items-start justify-around mt-20'>
+      <div className='flex justify-between text-left w-[300px] md:w-11/12 self-center 2xl:w-5/6 md:px-8 pb-6'>
+        <div className='flex flex-col items-start'>
+        <p className="text-2xl md:text-4xl font-bold md:font-semibold w-full">Discover More NFTs</p>
+          <p className="text-lg pt-4">Explore new trending NFTs</p>
         </div>
         <div className='hidden md:block'>
           <Button
@@ -53,15 +53,17 @@ export default function DiscoverMore() {
         </div>
       </div>
       <div className='columns-1 md:columns-3 m-auto'>
-        {items.map((i) => {
-          return (
-            <div className='mb-8'>
-              <DiscoverMoreCard
-                item={i}
-              />
-            </div>
-          )
-        })}
+        <div className='w-full'>
+          {items.map((i) => {
+            return (
+              <div className='mb-8'>
+                <DiscoverMoreCard
+                  item={i}
+                />
+              </div>
+            )
+          })}
+        </div>
         <div className='w-full md:hidden mb-10'>
           <Button
             color='secondary'

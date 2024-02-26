@@ -1,14 +1,27 @@
 import { Button, Card, CardHeader, CardBody, CardFooter } from "@nextui-org/react";
 import Image from 'next/image'
-export default function CollectionCard({ mainSrc, mainAlt, bodySrc1, bodyAlt1, bodySrc2, bodyAlt2, footerSrc, footerTitle, author }) {
+import { spaceMono } from "../Fonts";
+
+export default function CollectionCard({
+  mainSrc,
+  mainAlt,
+  bodySrc1,
+  bodyAlt1,
+  bodySrc2,
+  bodyAlt2,
+  footerSrc,
+  footerTitle,
+  author,
+  ...rest
+}) {
   return (
-    <Card className="max-w-[400px] bg-background shadow-none">
+    <Card {...rest}>
       <CardHeader>
         <Image
           alt={mainAlt}
           height={350}
           width={300}
-          style={{ borderRadius: '10%' }}
+          style={{ borderRadius: '10%', width: '100%' }}
           src={mainSrc}
         />
       </CardHeader>
@@ -17,37 +30,38 @@ export default function CollectionCard({ mainSrc, mainAlt, bodySrc1, bodyAlt1, b
           <Image
             alt={bodyAlt1}
             height={100}
-            width={99}
-            style={{ borderRadius: '10%' }}
+            width={100}
+            style={{ borderRadius: '15%' }}
             src={bodySrc1}
           />
           <Image
             alt={bodyAlt2}
             height={100}
-            width={99}
-            style={{ borderRadius: '10%' }}
+            width={100}
+            style={{ borderRadius: '15%' }}
             src={bodySrc2}
           />
           <Button
             color='secondary'
-            className='h-100 w-120'
+            className={`w-[100px] h-[100px] ${spaceMono.className} text-lg`}
+            radius="lg"
           >
             1025+
           </Button>
         </div>
       </CardBody>
       <CardFooter className='bg-lightGray'>
-        <div className="flex flex-col">
-          <p className="text-md">{footerTitle}</p>
-          <div className="flex flex-row">
+        <div className="flex flex-col gap-3">
+          <p className="text-2xl font-medium md:text-md">{footerTitle}</p>
+          <div className="flex flex-row gap-2">
             <Image
               alt='avatarImage'
-              height={20}
-              width={20}
+              height={25}
+              width={25}
               style={{ borderRadius: '50%' }}
               src={footerSrc}
             />
-            <p className="text-small text-default-500 pl-1">{author}</p>
+            <p className="text-lg md:text-sm">{author}</p>
           </div>
         </div>
       </CardFooter>

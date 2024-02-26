@@ -1,7 +1,9 @@
 import Image from 'next/image'
+import { workSans, spaceMonoRegular } from "../Fonts";
+
 export default function DiscoverMoreCard({ item, color }) {
   return (
-    <div className='md:mx-20 w-[310px] md:w-2/3'>
+    <div className={`${spaceMonoRegular.className} md:mx-16 w-[310px] md:w-3/4`}>
       <Image
         alt={item.title}
         height={450}
@@ -10,7 +12,7 @@ export default function DiscoverMoreCard({ item, color }) {
         src={item.img}
       />
       <div className={`flex flex-col bg-[#3B3B3B] p-4 rounded-b-3xl bg-${color}`}>
-        <p className="text-xl font-semibold">{item.title}</p>
+        <p className={`${workSans.className} text-xl font-semibold`}>{item.title}</p>
         <div className="flex flex-row py-2">
           <Image
             alt={item.authorName}

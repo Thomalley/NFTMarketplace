@@ -1,8 +1,8 @@
 import { Button } from "@nextui-org/react";
-import CreatorCard from "./CreatorsCard";
+import CreatorsCardMobile from "./CreatorsCardMobile";
 import { PiRocketLaunch as RocketIcon } from "react-icons/pi";
 
-export default function TopCreators() {
+export default function TopCreatorsMobile() {
   const authors = [
     {
       id: 1,
@@ -29,35 +29,34 @@ export default function TopCreators() {
       totalSales: '34.53 ETH',
     },
   ];
-  
+
   return (
-    <div className='hidden md:flex flex-col items-start justify-around'>
-      <div className='flex justify-between text-left w-[300px] md:w-11/12 self-center 2xl:w-5/6 md:px-8 pb-6'>
-        <div className='flex flex-col items-start'>
-          <p className="text-2xl md:text-4xl font-bold md:font-semibold w-full">Top Creators</p>
-          <p className="text-md text-default-500">Checkout Top Rated Creators on the NFT Marketplace.</p>
-        </div>
-        <div>
-          <Button
-            color='secondary'
-            variant="bordered"
-            className='text-white'
-            size='lg'
-            startContent={
-              <RocketIcon color='#A259FF'/>
-            }
-          >
-            View Rankings
-          </Button>
-        </div>
+    <div className='flex flex-col m-10 sm:hidden'>
+      <div className='flex flex-col justify-start items-start -mt-3'>
+        <p className="text-2xl font-semibold">Top Creators</p>
+        <p className="text-md text-default-500">Checkout Top Rated Creators on the NFT Marketplace.</p>
       </div>
-      <div className='flex justify-between self-center w-11/12 2xl:w-4/5 '>
+      <div className='flex w-full flex-col mt-12'>
         {authors.map((c) => {
-          return <CreatorCard
+          return <CreatorsCardMobile
             item={c}
           />
         })}
       </div>
+      <div className="flex justify-center mt-8">
+        <Button
+          color='secondary'
+          variant="bordered"
+          className='text-white w-[25em] text-xl h-[60px]'
+          size='lg'
+          radius="xl"
+          startContent={
+            <RocketIcon color='#A259FF' className="text-2xl"/>
+          }
+        >
+          View Rankings
+        </Button>
+      </div>
     </div >
   )
-};
+}
