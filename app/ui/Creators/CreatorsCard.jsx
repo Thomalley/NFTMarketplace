@@ -1,11 +1,12 @@
-import { Button, Card, CardHeader, CardBody, CardFooter } from "@nextui-org/react";
+import { Card, CardBody, CardFooter } from "@nextui-org/react";
 import Image from 'next/image'
+
 export default function CreatorCard({ item }) {
   return (
     <Card shadow="sm" key={item.id} className='bg-[#3B3B3B]'>
       <CardBody>
         <div className='flex flex-row'>
-          <div className='w-10 h-10 bg-[#2B2B2B] rounded-3xl justify-items-center items-center'>
+          <div className='absolute w-10 h-10 bg-[#2B2B2B] rounded-3xl left-2 top-2'>
             <p className='p-2'>{item.id}</p>
           </div>
           <Image
@@ -28,4 +29,4 @@ export default function CreatorCard({ item }) {
       </CardFooter>
     </Card>
   )
-}
+};

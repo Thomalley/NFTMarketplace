@@ -1,7 +1,7 @@
 'use client'
 import React from 'react';
 import { Input, Button, Divider } from "@nextui-org/react";
-import ShopIcon from "./icons/ShopIcon";
+import { MdStorefront as ShopIcon } from "react-icons/md";
 import { FaInstagram } from "react-icons/fa";
 import { RxDiscordLogo } from "react-icons/rx";
 import { FiYoutube, FiTwitter } from "react-icons/fi";
@@ -14,9 +14,9 @@ export default function MainFooter() {
 
       <div className="flex justify-evenly p-4 flex-col md:flex-row">
         <div className='w-full md:w-1/5 pb-10 md:pb-0'>
-          <div className="flex flex-row gap-2 pb-4">
-            <ShopIcon />
-            <p className="text-3xl font-semi">NFT Marketplace</p>
+          <div className="flex flex-row gap-1 pb-4">
+            <ShopIcon color='#A259FF' className='text-3xl self-center'/>
+            <p className="text-3xl font-semibold">NFT Marketplace</p>
           </div>
           <p className="text-lg text-default-500 md:w-2/3 pb-4">NFT marketplace UI created with Anima for Figma</p>
           <p className="text-lg text-default-500 mb-2">Join our community</p>

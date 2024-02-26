@@ -2,7 +2,7 @@ import React from "react";
 
 import HeroSection from './ui/HeroSection';
 import TrendingCollection from './ui/Trending/TrendingCollection';
-import TopCreators from "./ui/Artists/TopArtists";
+import TopCreators from "./ui/Creators/TopCreators";
 import DiscoverMore from "./ui/DiscoverNFT/DiscoverMore";
 export default function Home() {
 

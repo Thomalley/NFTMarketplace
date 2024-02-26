@@ -1,6 +1,7 @@
 import { Button } from "@nextui-org/react";
 import CreatorCard from "./CreatorsCard";
-import { PiRocketLaunch } from "react-icons/pi";
+import { PiRocketLaunch as RocketIcon } from "react-icons/pi";
+
 export default function TopCreators() {
   const authors = [
     {
@@ -42,7 +43,7 @@ export default function TopCreators() {
             className='text-white'
             size='lg'
             startContent={
-              <PiRocketLaunch color='#A259FF'/>
+              <RocketIcon color='#A259FF'/>
             }
           >
             View Rankings
@@ -58,4 +59,4 @@ export default function TopCreators() {
       </div>
     </div >
   )
-}
+};
