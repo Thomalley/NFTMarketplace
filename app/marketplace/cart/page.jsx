@@ -17,7 +17,7 @@ export default function Cart() {
   }
 
   return (
-    <div className=' bg-[#3B3B3B] md:h-[640px]'>
+    <div className=' bg-[#3B3B3B] md:min-h-[640px]'>
       <Toaster richColors />
       <div className='flex flex-row justify-around w-full bg-background h-20'>
         <div className='flex flex-row mb-4'>
@@ -26,33 +26,37 @@ export default function Cart() {
           </p>
         </div>
       </div>
-      {products.length ? products.map((p) => {
-        return (
-          <div className='flex flex-row m-auto mb-6 pt-12' key={p.id}>
-            <Tooltip color="secondary" content='Remove NFT from cart' size="sm">
-              <Button
-                onClick={() => handleDeleteProduct(p)}
-                className="absolute w-10 h-10 ml-16 text-4xl text-[#A259FF] bg-transparent"
-              >
-                x
-              </Button>
-            </Tooltip>
-            <DiscoverMoreCard
-              item={p}
-              color='background'
-            />
-          </div>
-        )
-      })
-        :
-        <div className='flex flex-row m-auto justify-center pt-12'>
-          <div className={`text-3xl ${spaceMonoRegular.className} underline text-secondary sshadow-[0_0_2px_#fff,inset_0_0_2px_#fff,0_0_5px_#A259FF,0_0_15px_#A259FF,0_0_30px_#A259FF]`}>
+      <div className={products.length ? 'grid grid-cols-1 md:grid-cols-3' : ''}>
+        {products.length ? products.map((p) => {
+          return (
+            <div className='flex flex-row mb-6 pt-12 justify-center' key={p.id}>
+              <Tooltip color="secondary" content='Remove NFT from cart' size="sm">
+                <Button
+                  onClick={() => handleDeleteProduct(p)}
+                  className="absolute mr-60 md:w-10 md:h-10 2xl:mr-80 text-4xl text-[#A259FF] bg-transparent"
+                >
+                  x
+                </Button>
+              </Tooltip>
+              <div>
+                <DiscoverMoreCard
+                  item={p}
+                  color='background'
+                />
+              </div>
+            </div>
+          )
+        })
+          :
+          <div className='flex flex-row m-auto justify-center pt-12'>
             <Link href='/marketplace'>
-              <p>Shop Now!</p>
+              <div className={`text-3xl ${spaceMonoRegular.className} underline text-secondary px-8 py-4 hover:shadow-[0_0_2px_#fff,inset_0_0_2px_#fff,0_0_5px_#A259FF,0_0_15px_#A259FF,0_0_30px_#A259FF]`}>
+                <p>Shop Now!</p>
+              </div>
             </Link>
           </div>
-        </div>
-      }
+        }
+      </div>
     </div >
   )
 };
