@@ -17,7 +17,7 @@ export default function App() {
   return (
     <Navbar shouldHideOnScroll maxWidth='full' onMenuOpenChange={setIsMenuOpen}>
       <NavbarContent>
-        <NavbarBrand justify="start
+        <NavbarBrand justify="start">
           <ShopIcon color='#A259FF' className='text-3xl self-center' />
           <p className={`${spaceMono.className} antialiased text-lg text-inherit ml-2`}>NFT Marketplace</p>
         </NavbarBrand>
