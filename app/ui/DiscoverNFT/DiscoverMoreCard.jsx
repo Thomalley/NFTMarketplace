@@ -8,6 +8,7 @@ export default function DiscoverMoreCard({ item, color }) {
         alt={item.title}
         height={450}
         width={400}
+        priority={true}
         style={{ borderRadius: '8% 8% 0% 0%' }}
         src={item.img}
       />

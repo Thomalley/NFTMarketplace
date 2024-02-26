@@ -22,7 +22,7 @@ export default function HeroSection() {
               </div>
             </div>
           </CardHeader>
-          <div className='mx-10 mt-6'>
+          <div className='mx-10 mt-6 max-w-[332px]'>
             <Image
               alt="space-walking"
               height={450}
