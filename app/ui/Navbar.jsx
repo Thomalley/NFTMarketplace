@@ -29,6 +29,7 @@ export default function App() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const handleDisabledSection = () => {
+    setIsMenuOpen(false);
     return toast.warning('Sorry, this section is not available yet :(',
       {
         duration: 4000,
@@ -47,10 +48,15 @@ export default function App() {
       shouldHideOnScroll
       className='mt-1'
       maxWidth='full'
+      isMenuOpen={isMenuOpen}
+      isMenuDefaultOpen={false}
       onMenuOpenChange={() => setIsMenuOpen((prev) => !prev)}
     >
       <NavbarContent>
-        <NavbarBrand justify="start">
+        <NavbarBrand
+          justify="start"
+          onClick={() => { setIsMenuOpen(false) }}
+        >
           <Link color="foreground" href="/" className="flex flex-row">
             <ShopIcon color='#A259FF' className='text-3xl self-center' />
             <p className={`${spaceMono.className} antialiased text-lg text-inherit ml-2`}>NFT Marketplace</p>
@@ -112,9 +118,11 @@ export default function App() {
         )}
       </NavbarContent>
 
-      <NavbarMenu>
+      <NavbarMenu className='pt-4'>
         {pathname.includes('/marketplace') && (
-          <NavbarMenuItem>
+          <NavbarMenuItem
+            onClick={() => { setIsMenuOpen(false) }}
+          >
             <Link
               color="foreground"
               href="/marketplace/cart"
@@ -126,7 +134,9 @@ export default function App() {
             </Link>
           </NavbarMenuItem>
         )}
-        <NavbarMenuItem>
+        <NavbarMenuItem
+          onClick={() => { setIsMenuOpen(false) }}
+        >
           {pathname.includes('marketplace') ? (
             <Link
               color="foreground"
