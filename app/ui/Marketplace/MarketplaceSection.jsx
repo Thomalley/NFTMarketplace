@@ -1,6 +1,14 @@
+'use client'
 import DiscoverMoreCard from "../DiscoverNFT/DiscoverMoreCard";
-import { Divider } from '@nextui-org/react';
+import { Button, Divider, Tooltip } from '@nextui-org/react';
+import { cartStore } from 'app/store/cart';
+import { Toaster, toast } from 'sonner'
+
 export default function MarkerplaceSection() {
+  const addProduct = cartStore((s) => s.addProduct)
+  const removeProduct = cartStore((s) => s.removeProduct)
+  const productsIds = cartStore((s) => s.cart.productsIds);
+
   const firstRowItems = [
     {
       id: 1,
@@ -32,7 +40,7 @@ export default function MarkerplaceSection() {
   ];
   const secondRowItems = [
     {
-      id: 1,
+      id: 4,
       title: 'Designer Bear',
       authorName: 'Mr Fox',
       img: 'https://s3-alpha-sig.figma.com/img/7e55/1754/df2c85a307298720a7483609e93b5fef?Expires=1709510400&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=kCttRq29Xkks0n9pEXil61jUukLneR0remqTkfb0TJp3a7jONUpo8PR709ujcwSbgadlTPlUKMVH4fC4LZlAE8VOE6-eMg66fa-ikBzeoodXjbF55Z8sVC35CnMqQxX1OU8xebytuAarUm7OGqqxDRqqluHA3xieb3wFGAfUZh6dfKSsR2ght2gcD8cD2Qf7KApBjUURvXVW6koa4vSpmCgL4dcy65IjVRG19n7Oj~ddSWdhTRHe1W97b0~XavAnstp~g38HFR3qLt7DPk41LK4DXsLLkqg7LFf30GRDrOOZubLjyE72EuNIjYWMVXYolEu27luS6h7My6P2sU9YxA__',
@@ -41,7 +49,7 @@ export default function MarkerplaceSection() {
       highestBid: '0.33 wETH',
     },
     {
-      id: 2,
+      id: 5,
       title: 'Colorful Dog 0356',
       authorName: 'Keepitreal',
       img: 'https://s3-alpha-sig.figma.com/img/84bb/b2ea/04b29a2aed3635daed04ad3418031eb4?Expires=1709510400&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=WRbb1INbov2l~T8ceP82VtAjkZAKJ63cqXyjJje6u6RQ4LLQzliynPCSWmHGGu28TXMc0vPUz3pM8Rl4hKti3~6GoOVqkMtOsNlCvE4GLUSgfKjOjL7rk6mFKCQ0pmut4ppF-yBJVJHubHh8K2qOAyuQvd~02mugxu6m3~DFhmO5kV41asFmgZalBmjthS0N6kpfYSjXV5A5bc4U4xGwmQh0PxPiYAgkdmnpM4ddXnns95-Dgga3AdOEYmFofFtXIttTjJ5Vhtf-inRw5yoCI0aPo8pjMYB8TpZyQd-8-Hm~ExzWmsJbU1~I-BGEjf7jMOgyW5HOcntkXxM0KpcDVA__',
@@ -50,7 +58,7 @@ export default function MarkerplaceSection() {
       highestBid: '0.33 wETH',
     },
     {
-      id: 3,
+      id: 6,
       title: 'Dancing Robot 0312',
       authorName: 'Robotica',
       img: 'https://s3-alpha-sig.figma.com/img/d983/47e1/73b90df9823e9f0887e7106bb434691d?Expires=1709510400&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=imqpz3uLsswJvr9zUXEa1x4SrxAWH93oqtcCO5YFXT6uCV0A0w99fcAIy9SgI0lBFG1tepdAhrHsDCIh2p6i8~RpGhg3FCf2gLCYPZOD41B5kp3b86saCHQV5F~VoKuSzdvWQtS27MGqPX-OfhM~ow9UYWgnf-EFWVDuUjSvZH9plW8qVSb4LwCd~2Lq5SVvGJCar~NUD8myxOtCF3SSmq~ITxmpMZ8sX2mK8-FBbpQnyCIYfnF0eE-ATNp6JWOY1KcQfrI3KdHdMcv1HIoCFoqDKX0dD7lH1kU0X6pxxL3pm5o5~7wmYzzwaM6kdVSJh5QGMQcVaB6pPIFK7L83Gg__',
@@ -59,8 +67,20 @@ export default function MarkerplaceSection() {
       highestBid: '0.33 wETH',
     }
   ];
+
+  const handleAddProduct = (i) => {
+    addProduct(i);
+    toast.success('NFT successfully added to cart')
+  }
+
+  const handleDeleteProduct = (i) => {
+    removeProduct(i)
+    toast.success('NFT successfully removed from cart')
+  }
+
   return (
-    <div className='flex flex-col items-start justify-arounds bg-[#3B3B3B]'>
+    <div className='flex flex-col items-start justify-around bg-[#3B3B3B]'>
+      <Toaster richColors />
       <div className='flex flex-row justify-around w-full bg-background h-20'>
         <div className='flex flex-col w-1/2 justify-center items-center'>
           <div className='flex flex-row mb-4'>
@@ -80,7 +100,15 @@ export default function MarkerplaceSection() {
         <div className='columns-1 md:columns-3 m-auto'>
           {firstRowItems.map((i) => {
             return (
-              <div className='mb-16'>
+              <div className='mb-16' key={i.id}>
+                <Tooltip color="secondary" content={`${productsIds.includes(i.id) ? 'Remove NFT from cart' : 'Add NFT to cart'}`} size="sm">
+                  <Button
+                    onClick={() => productsIds.includes(i.id) ? handleDeleteProduct(i) : handleAddProduct(i)}
+                    className="absolute w-10 h-10 ml-16 text-4xl text-[#A259FF] bg-transparent"
+                  >
+                    {productsIds.includes(i.id) ? '-' : '+'}
+                  </Button>
+                </Tooltip>
                 <DiscoverMoreCard
                   item={i}
                   color='background'
@@ -92,7 +120,15 @@ export default function MarkerplaceSection() {
         <div className='columns-1 md:columns-3 m-auto'>
           {secondRowItems.map((i) => {
             return (
-              <div className='mb-16'>
+              <div className='mb-16' key={i.id}>
+                <Tooltip color="secondary" content={`${productsIds.includes(i.id) ? 'Remove NFT from cart' : 'Add NFT to cart'}`} size="sm">
+                  <Button
+                    onClick={() => productsIds.includes(i.id) ? handleDeleteProduct(i) : handleAddProduct(i)}
+                    className="absolute w-10 h-10 ml-16 text-4xl text-[#A259FF] bg-transparent"
+                  >
+                    {productsIds.includes(i.id) ? '-' : '+'}
+                  </Button>
+                </Tooltip>
                 <DiscoverMoreCard
                   item={i}
                   color='background'
