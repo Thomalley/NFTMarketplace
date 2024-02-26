@@ -43,12 +43,17 @@ export default function App() {
   };
 
   return (
-    <Navbar shouldHideOnScroll maxWidth='full' onMenuOpenChange={() => setIsMenuOpen((prev) => !prev)}>
+    <Navbar
+      shouldHideOnScroll
+      className='mt-1'
+      maxWidth='full'
+      onMenuOpenChange={() => setIsMenuOpen((prev) => !prev)}
+    >
       <NavbarContent>
         <NavbarBrand justify="start">
           <Link color="foreground" href="/" className="flex flex-row">
             <ShopIcon color='#A259FF' className='text-3xl self-center' />
-            <p className={`${spaceMono.className} antialiased text-lg text-inherit ml-2`}>NFT Marketplace</p>
+            <p className={${spaceMono.className} antialiased text-lg text-inherit ml-2}>NFT Marketplace</p>
           </Link>
         </NavbarBrand>
         <NavbarMenuToggle
@@ -113,7 +118,7 @@ export default function App() {
             <Link
               color="foreground"
               href="/marketplace/cart"
-              className="text-lg mt-2"
+              className="text-lg"
             >
               <Badge content={cart.products.length} color="secondary">
                 <CartIcon color="#FFFFFF" className="text-4xl" />
@@ -165,5 +170,5 @@ export default function App() {
         </NavbarMenuItem>
       </NavbarMenu>
     </Navbar>
-  );
+  );
 }
