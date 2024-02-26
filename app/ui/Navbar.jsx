@@ -53,7 +53,7 @@ export default function App() {
         <NavbarBrand justify="start">
           <Link color="foreground" href="/" className="flex flex-row">
             <ShopIcon color='#A259FF' className='text-3xl self-center' />
-            <p className={${spaceMono.className} antialiased text-lg text-inherit ml-2}>NFT Marketplace</p>
+            <p className={`${spaceMono.className} antialiased text-lg text-inherit ml-2`}>NFT Marketplace</p>
           </Link>
         </NavbarBrand>
         <NavbarMenuToggle
@@ -170,5 +170,5 @@ export default function App() {
         </NavbarMenuItem>
       </NavbarMenu>
     </Navbar>
-  );
+  );
 }
