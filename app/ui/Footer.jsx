@@ -60,12 +60,14 @@ export default function MainFooter() {
             <p className="text-lg text-default-500 mb-4">Marketplace</p>
           </Link>
           <div
-            onClick={handleDisabledSection}
+            onClick={() => handleDisabledSection()}
+            className='cursor-pointer'
           >
             <p className="text-lg text-default-500 mb-4">Rankings</p>
           </div>
           <div
-            onClick={handleDisabledSection}
+            onClick={() => handleDisabledSection()}
+            className='cursor-pointer'
           >
             <p className="text-lg text-default-500">Connect a wallet</p>
           </div>
