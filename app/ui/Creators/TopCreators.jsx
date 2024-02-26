@@ -1,5 +1,6 @@
 import { Button } from "@nextui-org/react";
 import CreatorCard from "./CreatorsCard";
+import { PiRocketLaunch as RocketIcon } from "react-icons/pi";
 
 export default function TopCreators() {
   const authors = [
@@ -28,7 +29,7 @@ export default function TopCreators() {
       totalSales: '34.53 ETH',
     },
   ];
-
+  
   return (
     <div className='hidden md:flex flex-col items-start justify-around'>
       <div className='flex justify-between text-left w-[300px] md:w-11/12 self-center 2xl:w-5/6 md:px-8 pb-6'>
@@ -42,6 +43,9 @@ export default function TopCreators() {
             variant="bordered"
             className='text-white'
             size='lg'
+            startContent={
+              <RocketIcon color='#A259FF'/>
+            }
           >
             View Rankings
           </Button>
@@ -56,4 +60,4 @@ export default function TopCreators() {
       </div>
     </div >
   )
-}
+};
