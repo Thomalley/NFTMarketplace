@@ -20,7 +20,7 @@ import { IoChevronBack as BackIcon } from "react-icons/io5";
 import { IoIosCart as CartIcon } from "react-icons/io";
 import { cartStore } from 'app/store/cart';
 import { spaceMono } from "./Fonts";
-import { toast } from 'sonner'
+import { toast } from 'sonner';
 
 export default function App() {
   const router = useRouter()

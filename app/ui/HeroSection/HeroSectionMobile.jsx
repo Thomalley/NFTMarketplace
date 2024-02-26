@@ -22,16 +22,16 @@ export default function HeroSection() {
               </div>
             </div>
           </CardHeader>
-          <div className='mx-10 mt-6 max-w-[332px]'>
+          <div className='mx-auto mt-6 w-[332px]'>
             <Image
               alt="space-walking"
               height={450}
-              width={400}
+              width={350}
               priority={true}
               style={{ borderRadius: '8% 8% 0% 0%' }}
               src="https://s3-alpha-sig.figma.com/img/8ac9/e0e3/bcf2d5507a81254146143702cd71f923?Expires=1709510400&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=GS4mJbg4ZEEhrZac37GJzLxax874C9uUKKnprsJ3ReQccx0yfnJ6pd3nHrKbEoiy5g9BNXBipNWd6ALlfXMSNjyLUbI-7p~qYB0MxFbiLVN5IMf4BsUsPFoZlTM~yVjkgwLcL~IoO9~UzKYrNPqjNaHQmvQjbz2pJ4MQdXB1KyQWPLCZKNd4Y1~6Fo87b5HkF-iY5W5jMDYPgaSHX0tuatlvK9tFf6tqYTZm7W-XfWIe7JQf~H9dxAdBrDoXuyAQyy23WuCIj0cFMxyviftOlxUb5BRpOhwm8v8jf35y9hqEgtRgciGbwsJHBtdeaQdYB3zKr37ImW0opCjc92EQWg__"
             />
-            <div className="flex flex-col bg-[#3B3B3B] p-4 rounded-b-3xl absolute -mt-12 w-[332px] gap-3">
+            <div className="flex flex-col bg-[#3B3B3B] p-4 rounded-b-3xl absolute -mt-12 gap-3 w-[332px]">
               <p className="text-2xl 2xl:text-md font-medium">Space Walking</p>
               <div className="flex flex-row">
                 <Image

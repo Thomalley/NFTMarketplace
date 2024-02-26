@@ -82,7 +82,7 @@ export default function MarkerplaceSection() {
 
   return (
     <div className='flex flex-col items-start justify-around bg-[#3B3B3B]'>
-      <Toaster richColors />
+      <Toaster richColors theme='dark'/>
       <div className='flex flex-row justify-around w-full bg-background h-20'>
         <div className='flex flex-col w-1/2 justify-center items-center'>
           <div className='flex flex-row mb-4'>

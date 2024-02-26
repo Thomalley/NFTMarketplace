@@ -32,7 +32,7 @@ export default function Cart() {
   };
   return (
     <div className=' bg-[#3B3B3B] md:min-h-[640px]'>
-      <Toaster richColors />
+      <Toaster richColors theme='dark'/>
       <div className={`flex flex-col md:flex-row ${products.length === 0 ? 'justify-center' : 'justify-between'} pb-2 px-12 w-full bg-background h-36 md:h-20 md:mt-12`}>
         <div className='md:hidden flex flex-row'>
           <p className='pr-4 font-semibold text-lg'>
