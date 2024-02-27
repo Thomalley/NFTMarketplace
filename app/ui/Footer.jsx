@@ -1,5 +1,5 @@
 'use client'
-import React from 'react';
+import React, { useState } from 'react';
 import { Input, Button, Divider } from "@nextui-org/react";
 import { MdStorefront as ShopIcon } from "react-icons/md";
 import { FaInstagram as InstagramIcon } from "react-icons/fa";
@@ -8,8 +8,24 @@ import { FiYoutube as YoutubeIcon, FiTwitter as TwitterIcon } from "react-icons/
 import { SlEnvolope as EmailIcon } from "react-icons/sl";
 import Link from 'next/link'
 import { spaceMono } from './Fonts';
+import { toast } from 'sonner';
 
 export default function MainFooter() {
+  const [subscribeEmail, setSubscribeEmail] = useState('');
+  const handleDisabledSection = () => {
+    return toast.warning('Sorry, this section is not available yet :(',
+      {
+        duration: 4000,
+        style: {
+          background: '#27272A',
+          fontSize: '16px',
+          color: '#FDBA74',
+          borderColor: 'transparent'
+        }
+      }
+    )
+  };
+
   return (
     <div className="h-full bg-[#3B3B3B] pb-6 flex flex-col justify-between">
 
@@ -40,11 +56,21 @@ export default function MainFooter() {
         </div>
         <div className='w-full md:w-1/12 pb-10 md:pb-0'>
           <p className={`text-xl 2xl:text-2xl pb-4 ${spaceMono.className}`}>Explore</p>
-          <Link href="/marketplace">
-            <p className="text-lg text-default-500 pb-4">Marketplace</p>
+          <Link href="/marketplace" className='h-fit'>
+            <p className="text-lg text-default-500 mb-4">Marketplace</p>
           </Link>
-          <p className="text-lg text-default-500 pb-4">Rankings</p>
-          <p className="text-lg text-default-500">Connect a wallet</p>
+          <div
+            onClick={() => handleDisabledSection()}
+            className='cursor-pointer'
+          >
+            <p className="text-lg text-default-500 mb-4">Rankings</p>
+          </div>
+          <div
+            onClick={() => handleDisabledSection()}
+            className='cursor-pointer'
+          >
+            <p className="text-lg text-default-500">Connect a wallet</p>
+          </div>
         </div>
         <div className='w-full md:w-1/4'>
           <p className={`text-xl 2xl:text-2xl pb-4 ${spaceMono.className}`}>
@@ -57,8 +83,10 @@ export default function MainFooter() {
             <Input
               size="md"
               radius="lg"
+              value={subscribeEmail}
               label="Enter your email here"
               className="light"
+              onValueChange={setSubscribeEmail}
               classNames={{ inputWrapper: "hover: gb-white" }}
             />
             <div className="md:flex md:justify-end mt-4 md:mt-0">
@@ -67,6 +95,10 @@ export default function MainFooter() {
                 size="lg"
                 radius="lg"
                 color='secondary'
+                onClick={() => {
+                  setSubscribeEmail('');
+                  toast.success('You have successfully subscribed!');
+                }}
                 startContent={
                   <EmailIcon className="text-xl" />
                 }

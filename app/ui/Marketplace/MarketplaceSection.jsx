@@ -1,6 +1,8 @@
 'use client'
 import DiscoverMoreCard from "../DiscoverNFT/DiscoverMoreCard";
 import { Button, Divider, Tooltip } from '@nextui-org/react';
+import { FaPlus as PlusIcon } from "react-icons/fa";
+import { FaMinus as MinusIcon } from "react-icons/fa";
 import { cartStore } from 'app/store/cart';
 import { Toaster, toast } from 'sonner'
 
@@ -80,7 +82,7 @@ export default function MarkerplaceSection() {
 
   return (
     <div className='flex flex-col items-start justify-around bg-[#3B3B3B]'>
-      <Toaster richColors />
+      <Toaster richColors theme='dark'/>
       <div className='flex flex-row justify-around w-full bg-background h-20'>
         <div className='flex flex-col w-1/2 justify-center items-center'>
           <div className='flex flex-row mb-4'>
@@ -104,9 +106,11 @@ export default function MarkerplaceSection() {
                 <Tooltip color="secondary" content={`${productsIds.includes(i.id) ? 'Remove NFT from cart' : 'Add NFT to cart'}`} size="sm">
                   <Button
                     onClick={() => productsIds.includes(i.id) ? handleDeleteProduct(i) : handleAddProduct(i)}
-                    className="absolute h-10 -ml-3 md:ml-12 mt-1 2xl:ml-12 text-4xl text-[#A259FF] bg-transparent"
+                    radius='lg'
+                    isIconOnly
+                    className="absolute h-10 md:ml-16 mt-2 2xl:ml-20 text-2xl text-[#A259FF] bg-transparent"
                   >
-                    {productsIds.includes(i.id) ? '-' : '+'}
+                    {productsIds.includes(i.id) ? <MinusIcon /> : <PlusIcon />}
                   </Button>
                 </Tooltip>
                 <DiscoverMoreCard
@@ -124,9 +128,11 @@ export default function MarkerplaceSection() {
                 <Tooltip color="secondary" content={`${productsIds.includes(i.id) ? 'Remove NFT from cart' : 'Add NFT to cart'}`} size="sm">
                   <Button
                     onClick={() => productsIds.includes(i.id) ? handleDeleteProduct(i) : handleAddProduct(i)}
-                    className="absolute h-10 -ml-3 md:ml-12 mt-1 2xl:ml-12 text-4xl text-[#A259FF] bg-transparent"
+                    radius='lg'
+                    isIconOnly
+                    className="absolute h-10 md:ml-16 mt-2 2xl:ml-20 text-2xl text-[#A259FF] bg-transparent"
                   >
-                    {productsIds.includes(i.id) ? '-' : '+'}
+                    {productsIds.includes(i.id) ? <MinusIcon /> : <PlusIcon />}
                   </Button>
                 </Tooltip>
                 <DiscoverMoreCard
