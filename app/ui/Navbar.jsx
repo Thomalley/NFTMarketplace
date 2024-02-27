@@ -22,7 +22,7 @@ import { cartStore } from 'app/store/cart';
 import { spaceMono } from "./Fonts";
 import { toast } from 'sonner'
 
-export default function App() {
+export default function MainNavbar() {
   const router = useRouter()
   const pathname = usePathname();
   const cart = cartStore((state) => state.cart);
