@@ -31,7 +31,7 @@ export default function Cart() {
     setTimeout(() => router.push('/marketplace'), 2000);
   };
   return (
-    <div className=' bg-[#3B3B3B] md:min-h-[640px]'>
+    <div className=' bg-[#3B3B3B] md:min-h-[740px]'>
       <Toaster richColors theme='dark' />
       <div className={`flex flex-col md:flex-row ${products.length === 0 ? 'justify-center' : 'justify-between'} pb-2 px-12 w-full bg-background h-36 md:h-20 md:mt-12`}>
         <div className='md:hidden flex flex-row'>

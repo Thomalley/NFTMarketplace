@@ -39,7 +39,7 @@ export default function DiscoverMore() {
     },
   ];
   return (
-    <div className='flex flex-col items-start justify-center sm:justify-between mt-20'>
+    <div className='flex flex-col items-start justify-between mt-20 pb-10'>
       <div className='flex justify-between text-left w-[300px] md:w-11/12 self-center 2xl:w-5/6 md:px-8 pb-6'>
         <div className='flex flex-col items-start'>
           <p className="text-2xl md:text-4xl font-bold md:font-semibold w-full">Discover More NFTs</p>
@@ -59,8 +59,8 @@ export default function DiscoverMore() {
           </Button>
         </div>
       </div>
-      <div className='columns-1 md:columns-3  mx-auto'>
-        <div className='w-full'>
+      <div className='columns-1 md:columns-3 mx-auto'>
+        <div className='w-full space-y-16 sm:space-y-0'>
           {items.map((i) => {
             return (
               <div className='mb-8 sm:mx-[61px]'>
