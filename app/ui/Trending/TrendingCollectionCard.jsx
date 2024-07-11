@@ -52,7 +52,7 @@ export default function CollectionCard({
       </CardBody>
       <CardFooter className='bg-lightGray'>
         <div className="flex flex-col gap-3">
-          <p className="text-2xl font-medium md:text-md">{footerTitle}</p>
+          <p className="text-2xl font-semibold md:text-md">{footerTitle}</p>
           <div className="flex flex-row gap-2">
             <Image
               alt='avatarImage'

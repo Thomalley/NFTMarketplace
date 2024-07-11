@@ -1,5 +1,6 @@
-import React from "react";
+'use client'
 
+import React, {useEffect} from "react";
 import HeroSection from './ui/HeroSection/HeroSection';
 import HeroSectionMobile from "./ui/HeroSection/HeroSectionMobile";
 import TrendingCollection from './ui/Trending/TrendingCollection';
@@ -9,6 +10,14 @@ import DiscoverMore from "./ui/DiscoverNFT/DiscoverMore";
 import { Toaster } from 'sonner'
 
 export default function Home() {
+  useEffect(() => {
+    (
+      async () => {
+        const LocomotiveScroll = (await import('locomotive-scroll')).default
+        const locomotiveScroll = new LocomotiveScroll();
+      })()
+  }, []);
+  
   return (
     <div className='flex justify-center flex-col overflow-hidden'>
       <HeroSection />
@@ -17,7 +26,7 @@ export default function Home() {
       <TopCreators />
       <TopCreatorsMobile />
       <DiscoverMore />
-      <Toaster richColors theme="dark"/>
+      <Toaster richColors theme="dark" />
     </div>
   );
 }

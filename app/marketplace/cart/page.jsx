@@ -32,7 +32,7 @@ export default function Cart() {
   };
   return (
     <div className=' bg-[#3B3B3B] md:min-h-[640px]'>
-      <Toaster richColors theme='dark'/>
+      <Toaster richColors theme='dark' />
       <div className={`flex flex-col md:flex-row ${products.length === 0 ? 'justify-center' : 'justify-between'} pb-2 px-12 w-full bg-background h-36 md:h-20 md:mt-12`}>
         <div className='md:hidden flex flex-row'>
           <p className='pr-4 font-semibold text-lg'>
@@ -65,26 +65,24 @@ export default function Cart() {
           </Button>
         ) : null}
       </div>
-      <div className={products.length ? 'grid grid-cols-1 md:grid-cols-3' : ''}>
+      <div className={products.length ? 'grid grid-cols-1 md:grid-cols-3 w-full sm:ml-20 mt-10 gap-y-10' : ''}>
         {products.length ? products.map((p) => {
           return (
-            <div className='flex flex-row mb-6 pt-12 justify-center' key={p.id}>
+            <div key={p.id} className='relative mx-auto'>
+              <DiscoverMoreCard
+                item={p}
+                color='background'
+              />
               <Tooltip color="secondary" content='Remove NFT from cart' size="sm">
                 <Button
                   onClick={() => handleDeleteProduct(p)}
                   radius='lg'
                   isIconOnly
-                  className="absolute mt-4 mr-60 md:w-10 md:h-10 2xl:mr-80 text-2xl text-[#A259FF] bg-transparent"
+                  className="absolute text-2xl text-[#A259FF] bg-transparent left-[2%] sm:left-[14%] top-1"
                 >
                   <PlusIcon className='rotate-45' />
                 </Button>
               </Tooltip>
-              <div>
-                <DiscoverMoreCard
-                  item={p}
-                  color='background'
-                />
-              </div>
             </div>
           )
         })

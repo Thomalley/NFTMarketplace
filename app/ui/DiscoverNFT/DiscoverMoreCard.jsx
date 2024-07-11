@@ -3,16 +3,17 @@ import { workSans, spaceMonoRegular } from "../Fonts";
 
 export default function DiscoverMoreCard({ item, color }) {
   return (
-    <div className={`${spaceMonoRegular.className} md:mx-16 w-[310px] md:w-3/4`}>
+    <div className={`${spaceMonoRegular.className} md:mx-16 w-[330px] h-[469px]`}>
       <Image
         alt={item.title}
-        height={450}
-        width={400}
+        width={330}
+        height={295}
         priority={true}
         style={{ borderRadius: '8% 8% 0% 0%' }}
         src={item.img}
+        className="object-cover"
       />
-      <div className={`flex flex-col bg-[#3B3B3B] p-4 rounded-b-3xl bg-${color}`}>
+      <div className={`flex flex-col bg-[#3B3B3B] p-4 rounded-b-3xl max-w-[330px] bg-${color}`}>
         <p className={`${workSans.className} text-xl font-semibold`}>{item.title}</p>
         <div className="flex flex-row py-2">
           <Image
